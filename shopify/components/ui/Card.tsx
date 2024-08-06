@@ -1,29 +1,33 @@
 import { Image, Text, View } from "react-native";
 import imageMap from "../imageMap";
+
 interface CardWithTextProps {
-  src: keyof typeof ImageMap ;
+  src: keyof typeof imageMap;
   title?: string;
   price?: string;
 }
+
 export default function Card({ src, title, price }: CardWithTextProps) {
   return (
-    <View className="card bg-gray-50 h-[400px] w-64  shadow-sm rounded-lg ml-4">
-      <View className="h-[380px] transition-all duration-300 ease-in-out transform hover:scale-110 ">
+    <View className="bg-gray-50 h-[200px] w-[150px] shadow-xl rounded-lg">
+      <View className="flex-1 justify-center items-center">
         <Image
           source={imageMap[src]}
           alt=""
-          style={{ objectFit: "contain" }}
-          className="rounded"
+          resizeMode="cover"
+          className="max-h-[100px] w-full"
         />
       </View>
-      {title && (
-        <View className="text-black text-light p-5 bg-white outline-none">
-          <Text className="card-title">{title}</Text>
-        </View>
-      )}
-      {price && (
-        <View className="text-black text-light p-5 bg-white outline-none">
-          <Text className="text-sm text-gray-400 ">${price}</Text>
+      {(title || price) && (
+        <View className="bg-white outline-none">
+          {title && (
+            <Text className="card-title p-2 text-black text-light">
+              {title}
+            </Text>
+          )}
+          {price && (
+            <Text className="p-2 text-sm text-gray-400 ">${price}</Text>
+          )}
         </View>
       )}
     </View>

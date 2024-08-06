@@ -18,7 +18,7 @@ const Products = [
     },{
         id:3,
         title: 'SDK Portable Bluetooth Speaker',
-        src: '/SDKportable',
+        src: 'SDKportable',
         price: "85.00",
         description: "The SDK Portable Bluetooth Speaker delivers powerful, high-quality audio in a compact, travel-friendly design. This sleek speaker connects wirelessly to your devices, providing rich, room-filling sound wherever you go.",
 
@@ -26,52 +26,52 @@ const Products = [
     },{
         id:4,
         title: 'FitWatch Fitness Smart Watch',
-        src: '/SmartWatch',
+        src: 'SmartWatch',
         price: "85.00",
         description: "The FitWatch Fitness Smart Watch is a cutting-edge wearable device designed to track your health. lorem ipsum placeholder text lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text"
 
     },
-    // {
+     {
 
-    //     id:5,
-    //     title: 'Pantony DSLR Old School Camera With 18-55mm Lens',
-    //     src: '/PantonyCamera',
-    //     price: "70.00",
-    //     description: "The Pantony DSLR Old School Camera With 18-55mm Lens is lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
-    // },{
+         id:5,
+         title: 'Pantony DSLR Old School Camera With 18-55mm Lens',
+         src: 'PantonyCamera',
+         price: "70.00",
+         description: "The Pantony DSLR Old School Camera With 18-55mm Lens is lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
+     },{
         
-    //     id:6,
-    //     title:'Wave Mini 4 Quadcopter With Remote Controller',
-    //     src: '/WaveDrone',
-    //     price: "85.00",
-    //     description: "The Wave Mini 4 Quadcopter With Remote Controller is a high-performance drone lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
-    // },
-    // {
-    //     id:7,
-    //     title:'Pantony 6P Activity Tracker',
-    //     src: '/PantonyWearable',
-    //     price: "85.00",
-    //     description : "lorem ipsum placeholder tex t lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text"
-    // },{
-    //     id:8,
-    //     title: 'Pantony X21 5G, 128GB With Z Pen',
-    //     src: '/PantonyPhone',
-    //     price: "105.00",
-    //     description: "The Pantony X21 5G, 128GB With Z Pen is lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text"
-    // },{
-    //     id:9,
-    //     title: 'Pilates 14" Touch Screen Laptop 12GB Memory',
-    //     src: '/Pilates14',
-    //     price: "155.00",
-    //     description: "The Pilates 14\" Touch Screen Laptop 12GB Memory is lorem ipsum lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
-    // },{
+         id:6,
+         title:'Wave Mini 4 Quadcopter With Remote Controller',
+         src: 'WaveDrone',
+         price: "85.00",
+         description: "The Wave Mini 4 Quadcopter With Remote Controller is a high-performance drone lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
+     },
+     {
+         id:7,
+         title:'Pantony 6P Activity Tracker',
+         src: 'PantonyWearable',
+         price: "85.00",
+         description : "lorem ipsum placeholder tex t lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text"
+     },{
+         id:8,
+         title: 'Pantony X21 5G, 128GB With Z Pen',
+         src: 'PantonyPhone',
+         price: "105.00",
+         description: "The Pantony X21 5G, 128GB With Z Pen is lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text"
+     },{
+         id:9,
+         title: 'Pilates 14" Touch Screen Laptop 12GB Memory',
+         src: 'Pilates14',
+         price: "155.00",
+         description: "The Pilates 14 Touch Screen Laptop 12GB Memory is lorem ipsum lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
+     },{
         
-    //     id:10,
-    //     title: 'Corr Desktop 24GB Memory + 29" Screen Keyboard & Mouse',
-    //     src: '/CorrDesktop',
-    //     price: "175.00",
-    //     description: "The Corr Desktop 24GB Memory + 29\" Screen Keyboard & Mouse lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
-    // }
+         id:10,
+         title: 'Corr Desktop 24GB Memory + 29" Screen Keyboard & Mouse',
+         src: 'CorrDesktop',
+         price: "175.00",
+         description: "The Corr Desktop 24GB Memory + 29\" Screen Keyboard & Mouse lorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder textlorem ipsum placeholder text",
+     }
 ]
 
 export default Products
