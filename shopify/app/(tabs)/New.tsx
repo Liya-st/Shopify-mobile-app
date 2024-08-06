@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, ScrollView, TextInput, Button,Modal, Pressable } from "react-native";
-const device = require("@/assets/images/CorrDesktop.webp")
+// const device = require("@/assets/images/CorrDesktop.webp")
 
 const Display = () => {
   return (

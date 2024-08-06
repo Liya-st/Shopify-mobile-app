@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { View, StyleSheet,Button } from 'react-native';
+import React, { useState } from "react";
+import { View, StyleSheet, Button } from "react-native";
 
 interface FormProps {
   onSubmit: (values: any) => void;
   children: React.ReactNode;
+  title: string;
 }
 
-
-export default function Form({ onSubmit, children }: FormProps) {
+export default function Form({ title, onSubmit, children }: FormProps) {
   const [formValues, setFormValues] = useState({});
 
   const handleChange = (fieldName: string, value: any) => {
@@ -22,7 +22,7 @@ export default function Form({ onSubmit, children }: FormProps) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} className="m-5">
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(child, {
@@ -32,7 +32,7 @@ export default function Form({ onSubmit, children }: FormProps) {
           : child
       )}
       <View style={styles.submitContainer}>
-        <Button onPress={handleSubmit} title="Submit" />
+        <Button onPress={handleSubmit} title={title} />
       </View>
     </View>
   );
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   submitContainer: {
-    alignItems: 'center',
+    alignItems: "center",
+    marginTop: 10,
   },
 });

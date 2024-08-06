@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Products from './Products'
-import imageMap from '@/components/imageMap'
 import Card from '../Card'
 
 const styles = StyleSheet.create({
