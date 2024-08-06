@@ -35,7 +35,6 @@ export default function HomeScreen() {
           <Link href='/signup'>Sign-up</Link>
         </Text>
       </View>
-      <Link href='/users/1'>users</Link>
     </View>
   );
 }
