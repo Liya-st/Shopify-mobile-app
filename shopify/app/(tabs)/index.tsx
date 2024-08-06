@@ -1,28 +1,41 @@
-import { Image, StyleSheet, Platform, ScrollView, View, Text } from 'react-native';
+import { Image, StyleSheet, Platform, Button, StatusBar, ImageBackground } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from "@/components/HelloWave";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { Text, View, SafeAreaView, Alert } from "react-native";
+import { Link } from 'expo-router';
+
 export default function HomeScreen() {
+
   return (
-    <ScrollView>
-      <View>
-        <Image source={require('@/assets/images/Homepage.webp')}
-        className ="h-[450px] w-full"
-        />
+    <View>
+     
+      <ImageBackground
+        source={require("../../assets/images/Products.jpg")}
+        className="w-full h-full "
+      ></ImageBackground>
+       <View className='absolute top-80 left-20'>
+        <Text className='text-3xl text-green-200 '>Welcome to Shopify</Text>
+       
       </View>
-      <View className = "absolute top-1/2 left-1/4 transform -translate-x-1/3 -translate-y-1/2 mx-5  text-white">
-        <Text className= "text-2xl font-bold font-mono mt-5 text-white w-48 text-left">
-        Shop The Top Brand Electronic
-        </Text>
-        <Text className = "text-1xl italic w-4/5  my-5 text-white">
-        Get the best electronic products at the best price
-        </Text>
-        <Text className = "text-sm font-semibold font-sans text-center  p-2 bg-blue-500 rounded-3xl w-32 text-white">
-Shop Now
+      <View className='absolute top-96 left-10'>
+      <Text className='text-green-200'>Simplify, Enhance, Excel - Your Shopify Journey Starts Here</Text>
+       
+      </View>
+      
+      <View className="absolute bottom-28 w-full h-16 bg-red-400 flex justify-center items-center rounded-3xl">
+        <Text className="text-4xl text-slate-300">
+          <Link href='/login'>Login</Link>
         </Text>
       </View>
-      </ScrollView>
+      <View className="absolute bottom-10 w-full h-16 bg-blue-300 flex justify-center items-center rounded-3xl">
+      <Text className="text-4xl">
+          <Link href='/signup'>Sign-up</Link>
+        </Text>
+      </View>
+      <Link href='/users/1'>users</Link>
+    </View>
   );
 }
