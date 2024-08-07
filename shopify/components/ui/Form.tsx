@@ -35,7 +35,7 @@ const Form = ({ title, onSubmit, children, validationSchema }: FormProps) => {
           : child
       )}
       <View style={styles.submitContainer}>
-        <Button onPress={handleSubmit(onSubmitHandler)} title={title} />
+        <Button onPress={handleSubmit(onSubmitHandler)} title={title} className = "w-36"  />
       </View>
     </View>
   );
@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
 
 export default Form;
 
-const zodResolver = (schema: z.ZodType<any>) => {
-  return (data: any) => {
+const zodResolver = (schema) => {
+  return (data) => {
     try {
       return {
         values: schema.parse(data),
