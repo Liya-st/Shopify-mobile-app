@@ -1,8 +1,10 @@
+import { useCart } from "@/components/context/CartContext";
 import React from "react";
 import { View, Text, Image, ScrollView, TextInput, Button,Modal, Pressable } from "react-native";
 // const device = require("@/assets/images/CorrDesktop.webp")
 
 const Display = () => {
+  const { increaseCartQuantity } = useCart();
   return (
     <View className="pt-10">
       <ScrollView >
@@ -19,7 +21,7 @@ const Display = () => {
         A smartphone is a versatile mobile device that combines the functionality of a computer with the portability of a phone. It typically features a touchscreen interface, allowing users to interact with various applications and services. Smartphones are equipped with powerful processors, ample storage, and high-resolution cameras, making them suitable for a wide range of tasks such as browsing the internet, taking photos and videos, sending messages, and making calls. They also support connectivity options like Wi-Fi, Bluetooth, and cellular networks, enabling seamless communication and access to information on the go.
         </Text>
         <Pressable></Pressable>
-        <Button title= "Add to Cart" onPress={()=>console.log("pressed")}/>
+        <Button title= "Add to Cart" onPress={()=>increaseCartQuantity(2)}/>
         <Button title = "Buy Now" />
 
         </View>

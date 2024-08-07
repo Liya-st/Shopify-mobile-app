@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
   },
 })
 
-export default function CartList() {
+type cartItemProps={
+    id: number,
+    quantity: number,
+}
+export default function CartList({id,quantity}:cartItemProps) {
     const { cartItems } = useCart();
     
   return (
