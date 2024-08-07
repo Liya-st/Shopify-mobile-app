@@ -8,7 +8,7 @@ type CartContext = {
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
-  removefromCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
   cartItems: CartItem[]
 };
 
@@ -69,7 +69,7 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   }
 
-  function removefromCart(id: number) {
+  function removeFromCart(id: number) {
     setCartItems((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });
@@ -80,7 +80,7 @@ export function CartProvider({ children }: CartProviderProps) {
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
-        removefromCart,
+        removeFromCart,
         cartItems,
       }}
     >

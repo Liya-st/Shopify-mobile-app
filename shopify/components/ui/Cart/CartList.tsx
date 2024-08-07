@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import Products from '../ProductList/Products'
 import Card from '../Card'
 import CartCard from './CartCard'
+import { useCart } from '@/components/context/CartContext'
 
 const styles = StyleSheet.create({
   container: {
@@ -15,10 +16,12 @@ const styles = StyleSheet.create({
 })
 
 export default function CartList() {
+    const { cartItems } = useCart();
+    
   return (
     <View style={styles.container}>
-      {Products.map((product) => (
-        <CartCard {...product} key={product.id} />
+      {cartItems.map((item) => (
+        <CartCard  key={item.id} {...item} />
       ))}
     </View>
   )
