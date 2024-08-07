@@ -1,6 +1,5 @@
 import { useCart } from "@/components/context/CartContext";
 import CartList from "@/components/ui/Cart/CartList";
-import ProductList from "@/components/ui/ProductList/ProductList";
 import { Button, ScrollView } from "react-native";
 
 export default function CartPage(){

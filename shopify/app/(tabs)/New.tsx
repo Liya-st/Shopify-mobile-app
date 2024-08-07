@@ -6,11 +6,11 @@ const Display = () => {
   return (
     <View className="pt-10">
       <ScrollView >
-        <Image source  = {device}
+        {/* <Image source  = {device}
         className = "m-6 rounded-md"
         
         // style ={{width : 300, height :400 }}
-        />
+        /> */}
         <View>
         <Text className = "pl-2 text-xl bold  ">
           Discription

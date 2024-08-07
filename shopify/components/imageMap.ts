@@ -1,5 +1,5 @@
 
-const imageMap = {
+const imageMap : { [key: string]: any } = {
     "RoundMini": require("@/assets/images/Products/RoundMini.webp"),
     "OveLight": require("@/assets/images/Products/OveLight.webp"),
     "SDKportable": require("@/assets/images/Products/SDKportable.webp"),
