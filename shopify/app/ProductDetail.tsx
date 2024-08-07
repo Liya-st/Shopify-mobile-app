@@ -61,7 +61,7 @@ const ProductDetail: React.FC = () => {
             onPress={() => increaseCartQuantity(product.id)}
             className=""
           />
-          <Button title="Buy Now" onPress={router.push({'./cart'})} />
+          <Button title="Buy Now" onPress={router.push('./cart')} />
         </View>
       </ScrollView>
     </View>
