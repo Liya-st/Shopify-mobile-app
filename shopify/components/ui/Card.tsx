@@ -1,13 +1,13 @@
 import { Image, Text, View } from "react-native";
 import imageMap from "../imageMap";
 
-interface CardWithTextProps {
+interface CardProps {
   src: keyof typeof imageMap;
   title?: string;
   price?: string;
 }
 
-export default function Card({ src, title, price }: CardWithTextProps) {
+export default function Card({ src, title, price }: CardProps) {
   return (
     <View className="bg-gray-50 h-[200px] w-[150px] shadow-xl rounded-lg">
       <View className="flex-1 justify-center items-center">
@@ -15,7 +15,7 @@ export default function Card({ src, title, price }: CardWithTextProps) {
           source={imageMap[src]}
           alt=""
           resizeMode="cover"
-          className="max-h-[100px] w-full"
+          className="h-full w-full"
         />
       </View>
       {(title || price) && (

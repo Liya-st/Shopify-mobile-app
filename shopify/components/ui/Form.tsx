@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, StyleSheet, Button } from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
 
 interface FormProps {
   onSubmit: (values: any) => void;
   children: React.ReactNode;
   title: string;
+  validationSchema: z.ZodType<any>;
 }
 
-export default function Form({ title, onSubmit, children }: FormProps) {
-  const [formValues, setFormValues] = useState({});
+const Form = ({ title, onSubmit, children, validationSchema }: FormProps) => {
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(validationSchema),
+  });
 
-  const handleChange = (fieldName: string, value: any) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [fieldName]: value,
-    }));
-  };
-
-  const handleSubmit = () => {
-    onSubmit(formValues);
+  const onSubmitHandler = (values: any) => {
+    onSubmit(values);
   };
 
   return (
@@ -26,17 +24,22 @@ export default function Form({ title, onSubmit, children }: FormProps) {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(child, {
-              onChangeText: (value: any) =>
-                handleChange(child.props.name, value),
+              control,
+              rules: {
+                required: {
+                  value: true,
+                  message: `${child.props.name} is required`,
+                },
+              },
             })
           : child
       )}
       <View style={styles.submitContainer}>
-        <Button onPress={handleSubmit} title={title} />
+        <Button onPress={handleSubmit(onSubmitHandler)} title={title} />
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -47,3 +50,24 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
+export default Form;
+
+const zodResolver = (schema: z.ZodType<any>) => {
+  return (data: any) => {
+    try {
+      return {
+        values: schema.parse(data),
+        errors: {},
+      };
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return {
+          values: {},
+          errors: error.formErrors.fieldErrors,
+        };
+      }
+      throw error;
+    }
+  };
+};
