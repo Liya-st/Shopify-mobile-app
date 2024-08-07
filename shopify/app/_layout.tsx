@@ -1,7 +1,6 @@
 import {
   DarkTheme,
   DefaultTheme,
-  NavigationContainer,
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -13,7 +12,6 @@ import "./global.css";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CartProvider } from "@/components/context/CartContext";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -33,15 +31,15 @@ export default function RootLayout() {
   }
 
   return (
-    <NavigationContainer>
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <CartProvider> 
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
+          <Stack.Screen name="ProductDetail" />
         </Stack>
+        
        </CartProvider> 
     </ThemeProvider>
-    </NavigationContainer>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Card from '../Card'
 import CartCard from './CartCard'
-import Products from '@/app/(tabs)/ProductList/Products'
+import Products from '@/components/ui/ProductList/Products'
 import { useCart } from '@/components/context/CartContext'
 
 const styles = StyleSheet.create({
