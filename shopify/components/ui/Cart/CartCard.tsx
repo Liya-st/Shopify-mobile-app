@@ -1,5 +1,6 @@
 import { Image, Text, View } from "react-native";
 import imageMap from "@/components/imageMap";
+import { useCart } from "@/components/context/CartContext";
 
 interface CardWithTextProps {
   src: keyof typeof imageMap;
@@ -7,6 +8,7 @@ interface CardWithTextProps {
   price?: string;
 }
 export default function CartCard({ src, title, price }: CardWithTextProps){
+    
     return (
         <View className=" h-[200px] w-[150px] shadow-xl rounded-lg">
         <View className="flex-1 justify-center items-center">
