@@ -83,6 +83,7 @@ export default function SignupPage() {
                       onChangeText={onChange}
                       value={value}
                       placeholder="Name"
+                      className ="p-[10px]"
                       style={{ padding: 10, borderRadius: 8, backgroundColor: '#6B8E23', color: 'white' }}
                       placeholderTextColor="#999"
                     />
