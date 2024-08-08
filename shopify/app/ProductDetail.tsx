@@ -22,16 +22,17 @@ const ProductDetail: React.FC = () => {
 
   const handleDecrease = () => {
     if (quantity > 0) {
+      decreaseCartQuantity(product.id)
       setQuantity(quantity - 1);
     }
   };
 
   const handleIncrease = () => {
+    increaseCartQuantity(product.id);
     setQuantity(quantity + 1);
   };
 
   const handleAddToCart = () => {
-    increaseCartQuantity(product.id, quantity);
     setQuantity(0);
   };
 
@@ -59,7 +60,7 @@ const ProductDetail: React.FC = () => {
           <Text className="p-5 text-lg text-slate-800">
             {product.description}
           </Text>
-          <View className="flex items-center justify-between px-5">
+          <View className="flex-row items-center justify-center gap-6 px-5 pb-3 pt-2">
             <Button
               title="-"
               onPress={handleDecrease}

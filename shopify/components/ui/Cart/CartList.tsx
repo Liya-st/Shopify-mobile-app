@@ -28,6 +28,7 @@ export default function CartList({id,quantity}:cartItemProps) {
       <View style={styles.container}>
         {cartItems.map((item) => (
           <CartCard  key={item.id} {...item} />
+          
         ))}
       </View>
     </View>
