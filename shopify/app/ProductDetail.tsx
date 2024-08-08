@@ -32,7 +32,7 @@ const ProductDetail: React.FC = () => {
               source={imageMap[product.src]}
               alt=""
               resizeMode="cover"
-              className="max-h-[100px] max-w-full"
+              className="max-h-full max-w-full"
             />
           </View>
           <View className="bg-white outline-none">
@@ -61,7 +61,7 @@ const ProductDetail: React.FC = () => {
             onPress={() => increaseCartQuantity(product.id)}
             className=""
           />
-          <Button title="Buy Now" onPress={router.push('./cart')} />
+          {/* <Button title="Buy Now" onPress={router.push('./cart')} /> */}
         </View>
       </ScrollView>
     </View>
