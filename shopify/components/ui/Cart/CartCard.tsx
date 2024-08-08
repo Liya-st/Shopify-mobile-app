@@ -8,8 +8,9 @@ interface CardWithTextProps {
   title?: string;
   price?: string;
   id?:number;
+  quantity?:number,
 }
-export default function CartCard({ title, price,id }: CardWithTextProps){
+export default function CartCard({ title, price,id,quantity }: CardWithTextProps){
     const item = Products.find(i=> i.id === id)
     const adjustedId = id - 1;
     return (
@@ -31,7 +32,10 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
                   </Text>              
                 )}
                 {item.price && (
-                  <Text className="p-2 text-sm text-gray-400 ">${item.price}</Text>
+                  <Text className="p-2 text-sm text-gray-400 ">${item.price}{quantity > 1 && (
+                    <span className="text-muted" style={{ fontSize: ".65rem" }}>
+                      x{quantity}
+                    </span>)}</Text>
                 )}
               </View>
             )}
