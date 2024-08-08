@@ -1,6 +1,6 @@
 import React from 'react';
 import { z } from 'zod';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { firestore } from '@/firebase/config';
 import { doc, setDoc } from 'firebase/firestore';
@@ -31,6 +31,7 @@ export default function SignupPage() {
         name,
         email,
       });
+      navigation.navigate("login")
     } catch (error) {
       console.error('Error during signup or Firestore operation:', error);
     }

@@ -26,7 +26,6 @@ const useFirebaseAuth = () => {
   };
 
   const logIn = async (email: string, password: string): Promise<UserCredential> => {
-      const auth = getAuth();
       try {
         await signInWithEmailAndPassword(auth, email, password);
         console.log('User logged in successfully');

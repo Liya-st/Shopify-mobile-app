@@ -1,5 +1,5 @@
 import Products from '@/components/ui/ProductList/Products';
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, ScrollView, Image } from 'react-native';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import imageMap from '@/components/imageMap';
@@ -11,16 +11,29 @@ type RootStackParamList = {
 
 type ProductDetailRouteProp = RouteProp<RootStackParamList, 'ProductDetail'>;
 
-
 const ProductDetail: React.FC = () => {
-  
-  const Navigation = useNavigation()
+  const Navigation = useNavigation();
   const route = useRoute<ProductDetailRouteProp>();
   const { id } = route.params;
   const product = Products.find((p) => p.id === id);
 
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } = useCart();
-  const quantity = getItemQuantity(product.id);
+  const [quantity, setQuantity] = useState(getItemQuantity(product.id));
+
+  const handleDecrease = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleAddToCart = () => {
+    increaseCartQuantity(product.id, quantity);
+    setQuantity(0);
+  };
 
   return (
     <View className="pt-10 h-full">
@@ -31,7 +44,7 @@ const ProductDetail: React.FC = () => {
               source={imageMap[product.src]}
               alt=""
               resizeMode="cover"
-              className="max-h-[100px] max-w-full"
+              className="max-h-full max-w-full"
             />
           </View>
           <View className="bg-white outline-none">
@@ -49,24 +62,21 @@ const ProductDetail: React.FC = () => {
           <View className="flex items-center justify-between px-5">
             <Button
               title="-"
-              onPress={() => decreaseCartQuantity(product.id)}
+              onPress={handleDecrease}
               disabled={quantity === 0}
             />
             <Text>{quantity}</Text>
-            <Button title="+" onPress={() => increaseCartQuantity(product.id)} />
+            <Button title="+" onPress={handleIncrease} />
           </View>
           <Button
             title="Add to Cart"
-            onPress={() => increaseCartQuantity(product.id)}
+            onPress={handleAddToCart}
           />
-          <Button title="Buy Now" onPress={()=>{Navigation.navigate('/(tab)/cart')}} />
+          <Button title="Buy Now"  />
         </View>
       </ScrollView>
     </View>
   );
 };
 
-  
-
 export default ProductDetail;
-
