@@ -13,7 +13,7 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
     const item = Products.find(i=> i.id === id)
     const adjustedId = id - 1;
 
-    const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity,cartItems } = useCart();
+    const { cartItems,removeFromCart } = useCart();
 
     const itemInCart = cartItems.find(cartItem => cartItem.id === id);
     const quantity = itemInCart ? itemInCart.quantity : 0;
@@ -39,7 +39,13 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
                   <Text className="p-2 text-sm text-gray-400 ">${item.price}</Text>
                 )}
                  {quantity > 0 && (
+                  <>
               <Text className="p-2 text-sm text-gray-500">Qty: {quantity}</Text>
+              <Button
+                  title="Remove"
+                  onPress={() => removeFromCart(id)}
+                />
+              </>
             )}
               </View>
             )}
