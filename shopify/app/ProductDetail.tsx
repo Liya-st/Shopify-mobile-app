@@ -25,7 +25,7 @@ const product = Products.find((p) => p.id === id);
                   source={imageMap[product.src]}
                   alt=""
                   resizeMode="cover"
-                  className="max-h-[100px] max-w-full"
+                  className="max-h-full max-w-full"
                 />
               </View>
               <View className="bg-white outline-none">
@@ -48,11 +48,6 @@ const product = Products.find((p) => p.id === id);
       );
     };
   
-// const styles = StyleSheet.create({
-//   button :{
-//     backgroundColor: '#4CAF50',
-//     marginVertical:20,
-//   }
-// })
+
 
 export default ProductDetail;
