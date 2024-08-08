@@ -5,7 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Intro from '@/components/ui/Intro';
-import ProductList from '../ProductList/ProductList';
+import ProductList from '../../../components/ui/ProductList/ProductList';
 
 export default function HomeScreen() {
   return (

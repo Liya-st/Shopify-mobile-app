@@ -6,7 +6,7 @@ interface Props extends InputHTMLAttributes<TextInput> {
     error?: string;
   }
 
-export default function input({title, error, ...rest}: Props){
+export default function Input({title, error, ...rest}: Props){
     return (
         <View className = ' flex gap-2 '>
             <Text >

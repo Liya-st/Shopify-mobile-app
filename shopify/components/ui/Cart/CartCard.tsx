@@ -1,7 +1,7 @@
 import { Image, Text, View } from "react-native";
 import imageMap from "@/components/imageMap";
 import { useCart } from "@/components/context/CartContext";
-import Products from "@/app/(tabs)/ProductList/Products";
+import Products from "../ProductList/Products";
 import cartMap from "@/components/cartMap";
 
 interface CardWithTextProps {
