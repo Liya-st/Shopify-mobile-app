@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 import imageMap from "@/components/imageMap";
 import { useCart } from "@/components/context/CartContext";
 import Products from "../ProductList/Products";
@@ -28,7 +28,7 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
                 {item.title && (
                   <Text className="card-title p-2 text-black text-light">
                     {item.title}
-                  </Text>
+                  </Text>              
                 )}
                 {item.price && (
                   <Text className="p-2 text-sm text-gray-400 ">${item.price}</Text>
