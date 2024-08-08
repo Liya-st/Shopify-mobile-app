@@ -1,9 +1,9 @@
-import { Image, Text, View } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 import imageMap from "@/components/imageMap";
 import { useCart } from "@/components/context/CartContext";
 import Products from "../ProductList/Products";
 import cartMap from "@/components/cartMap";
-
+ 
 interface CardWithTextProps {
   title?: string;
   price?: string;
@@ -12,6 +12,11 @@ interface CardWithTextProps {
 export default function CartCard({ title, price,id }: CardWithTextProps){
     const item = Products.find(i=> i.id === id)
     const adjustedId = id - 1;
+
+    const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity,cartItems } = useCart();
+
+    const itemInCart = cartItems.find(cartItem => cartItem.id === id);
+    const quantity = itemInCart ? itemInCart.quantity : 0;
     return (
         <View className=" h-[200px] w-[150px] shadow-xl rounded-lg">
         <View className="flex-1 justify-center items-center">
@@ -28,11 +33,14 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
                 {item.title && (
                   <Text className="card-title p-2 text-black text-light">
                     {item.title}
-                  </Text>
+                  </Text>              
                 )}
                 {item.price && (
                   <Text className="p-2 text-sm text-gray-400 ">${item.price}</Text>
                 )}
+                 {quantity > 0 && (
+              <Text className="p-2 text-sm text-gray-500">Qty: {quantity}</Text>
+            )}
               </View>
             )}
         </View>

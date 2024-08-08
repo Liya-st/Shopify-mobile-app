@@ -5,7 +5,8 @@ import {
   signOut, 
   onAuthStateChanged, 
   User, 
-  UserCredential 
+  UserCredential, 
+  getAuth
 } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, firestore} from '@/firebase/config';
@@ -25,12 +26,14 @@ const useFirebaseAuth = () => {
   };
 
   const logIn = async (email: string, password: string): Promise<UserCredential> => {
-    try {
-      return await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error('Error logging in:', error);
-      throw error;
-    }
+      const auth = getAuth();
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log('User logged in successfully');
+      } catch (error) {
+        console.error('Error logging in:', error);
+        throw error;
+      }
   };
 
   const logOut = async (): Promise<void> => {

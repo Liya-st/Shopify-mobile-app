@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { useAsyncStorage } from "../hooks/useLocalStorage";
+import { useAsyncStorage } from "../../hooks/useLocalStorage";
 
 type CartProviderProps = {
   children: ReactNode;
