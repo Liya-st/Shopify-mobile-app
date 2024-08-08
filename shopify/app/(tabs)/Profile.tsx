@@ -11,6 +11,7 @@ import {
 } from 'firebase/auth';
 import {  firestore } from '@/firebase/config';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
+import { useNavigation } from '@react-navigation/core';
 // import Input from '@/components/ui/Inputs';
 
 const formSchema = z
@@ -31,9 +32,10 @@ const formSchema = z
 type FormField = z.infer<typeof formSchema>;
 
 const EditProfile = () => {
+  const navigation = useNavigation()
   const [isEdited, setisEdited] = useState(false);
   const { currentUser } = useFirebaseAuth();
-
+  const {logOut} = useFirebaseAuth();
   const {
     control,
     handleSubmit,
@@ -50,7 +52,15 @@ const EditProfile = () => {
   };
 
   const user = currentUser;
-
+  const handleLogOut = async() =>{
+    try
+    {
+      await logOut()
+      navigation.navigate('index')
+    } catch(error){
+      console.error("log out failed" , error);
+    }
+  }
   const onSubmit = async (data: FormField) => {
     try {
       if (user) {
@@ -153,6 +163,7 @@ const EditProfile = () => {
           <Text style={styles.success}>User Details edited successfully</Text>
         )}
       </View>
+      <Button title = "Log Out" onPress={handleLogOut}/>
     </View>
   );
 };

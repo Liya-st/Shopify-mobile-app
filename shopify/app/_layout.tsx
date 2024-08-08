@@ -11,6 +11,7 @@ import "react-native-reanimated";
 import "./global.css";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { CartProvider } from "@/components/context/CartContext";
+import { AuthProvider } from '@/components/context/AuthContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,6 +33,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <AuthProvider>
       <CartProvider> 
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -41,8 +43,8 @@ export default function RootLayout() {
           <Stack.Screen name="signup" />
           <Stack.Screen name="home" />
         </Stack>
-        
        </CartProvider> 
+       </AuthProvider>
     </ThemeProvider>
   );
 }
