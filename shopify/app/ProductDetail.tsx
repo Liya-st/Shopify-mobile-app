@@ -1,11 +1,9 @@
-
 import Products from '@/components/ui/ProductList/Products';
 import React from 'react';
 import { View, Text, StyleSheet, Button, ScrollView, Image } from 'react-native';
-import { useRoute, RouteProp } from '@react-navigation/native';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import imageMap from '@/components/imageMap';
 import { useCart } from '@/components/context/CartContext';
-import { router } from 'expo-router';
 
 type RootStackParamList = {
   ProductDetail: { id: number };
@@ -16,6 +14,7 @@ type ProductDetailRouteProp = RouteProp<RootStackParamList, 'ProductDetail'>;
 
 const ProductDetail: React.FC = () => {
   
+  const Navigation = useNavigation()
   const route = useRoute<ProductDetailRouteProp>();
   const { id } = route.params;
   const product = Products.find((p) => p.id === id);
@@ -59,9 +58,8 @@ const ProductDetail: React.FC = () => {
           <Button
             title="Add to Cart"
             onPress={() => increaseCartQuantity(product.id)}
-            className=""
           />
-          {/* <Button title="Buy Now" onPress={router.push('./cart')} /> */}
+          <Button title="Buy Now" onPress={()=>{Navigation.navigate('/(tab)/cart')}} />
         </View>
       </ScrollView>
     </View>
@@ -71,3 +69,4 @@ const ProductDetail: React.FC = () => {
   
 
 export default ProductDetail;
+
