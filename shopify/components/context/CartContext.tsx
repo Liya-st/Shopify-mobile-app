@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { useAsyncStorage } from "../../hooks/useLocalStorage";
 
 type CartProviderProps = {
   children: ReactNode;
@@ -24,7 +25,7 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useAsyncStorage<CartItem[]>("shopping-cart",[]);
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
