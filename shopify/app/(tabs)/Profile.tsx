@@ -15,8 +15,7 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
 const formSchema = z
   .object({
-    Fname: z.string().min(2, 'First name must be at least 2 characters'),
-    Lname: z.string().min(2, 'Last name must be at least 2 characters'),
+    name: z.string().min(2, 'Name must be at least 2 characters'),
     oldPassword: z.string().min(8, 'Password must be at least 8 characters'),
     newPassword: z.string().min(8, 'Password must be at least 8 characters'),
     confirmPassword: z
@@ -60,8 +59,7 @@ const EditProfile = () => {
 
         const userDocRef = doc(firestore, 'users', user.uid);
         await updateDoc(userDocRef, {
-          Fname: data.Fname,
-          Lname: data.Lname,
+          name: data.name,
         });
 
         console.log('Profile updated successfully');
@@ -76,16 +74,19 @@ const EditProfile = () => {
 
   return (
     <View style={styles.container}>
+      <View >
+        
+      </View>
       <View style={styles.card}>
         <Text style={styles.title}>Edit your profile details</Text>
         <View style={styles.form}>
           <Controller
             control={control}
-            name="Fname"
+            name="name"
             render={({ field: { onChange, value } }) => (
               <Input
                 title="Name"
-                error={errors?.Fname?.message}
+                error={errors?.name?.message}
                 onChangeText={onChange}
                 value={value}
                 placeholder="Name"
