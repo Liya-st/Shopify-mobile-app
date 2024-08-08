@@ -29,7 +29,6 @@ export function CartProvider({ children }: CartProviderProps) {
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
-    // so ezi gare if the item exists return item.quantity if not the item is not present so return zero
   }
 
   function increaseCartQuantity(id: number ) {
@@ -37,15 +36,12 @@ export function CartProvider({ children }: CartProviderProps) {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
       }
-      // here return all of our curritems plus this new item and set its quantity to 1 here I am adding it
       else {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity + 1 };
           }
-          // here since the item already exists add one more to it
           else return item;
-          // or else return our item as is
         });
       }
     });
@@ -56,15 +52,12 @@ export function CartProvider({ children }: CartProviderProps) {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
       }
-      // here I am filtering my itmes to everything but the one with that id that has a quantity of 1
       else {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity - 1 };
           }
-          // here since the item already exists subtract one more to it
           else return item;
-          // or else return our item as is
         });
       }
     });
