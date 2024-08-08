@@ -84,24 +84,11 @@ const EditProfile = () => {
             name="Fname"
             render={({ field: { onChange, value } }) => (
               <Input
-                title="First Name"
+                title="Name"
                 error={errors?.Fname?.message}
                 onChangeText={onChange}
                 value={value}
-                placeholder="First Name"
-              />
-            )}
-          />
-          <Controller
-            control={control}
-            name="Lname"
-            render={({ field: { onChange, value } }) => (
-              <Input
-                title="Last Name"
-                error={errors?.Lname?.message}
-                onChangeText={onChange}
-                value={value}
-                placeholder="Last Name"
+                placeholder="Name"
               />
             )}
           />

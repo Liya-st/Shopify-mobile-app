@@ -32,7 +32,7 @@ export function CartProvider({ children }: CartProviderProps) {
     // so ezi gare if the item exists return item.quantity if not the item is not present so return zero
   }
 
-  function increaseCartQuantity(id: number) {
+  function increaseCartQuantity(id: number ) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
