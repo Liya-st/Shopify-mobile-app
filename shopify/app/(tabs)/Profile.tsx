@@ -15,7 +15,7 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 
 const formSchema = z
   .object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
+    name: z.string().min(2, 'name must be at least 2 characters'),
     oldPassword: z.string().min(8, 'Password must be at least 8 characters'),
     newPassword: z.string().min(8, 'Password must be at least 8 characters'),
     confirmPassword: z
@@ -74,9 +74,6 @@ const EditProfile = () => {
 
   return (
     <View style={styles.container}>
-      <View >
-        
-      </View>
       <View style={styles.card}>
         <Text style={styles.title}>Edit your profile details</Text>
         <View style={styles.form}>
