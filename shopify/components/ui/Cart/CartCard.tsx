@@ -18,7 +18,7 @@ export default function CartCard({ title, price,id }: CardWithTextProps){
     const itemInCart = cartItems.find(cartItem => cartItem.id === id);
     const quantity = itemInCart ? itemInCart.quantity : 0;
     return (
-        <View className=" h-[200px] w-[150px] shadow-xl rounded-lg">
+        <View className=" h-[200px] w-[150px] shadow-xl rounded-lg ">
         <View className="flex-1 justify-center items-center">
           <Image
             source={cartMap[adjustedId]}
