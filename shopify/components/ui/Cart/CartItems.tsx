@@ -4,6 +4,9 @@ import { Button, ScrollView, Text } from "react-native";
 
 export default function CartItem() {
   const { cartItems, checkOut } = useCart();
+  const renderCheckoutButton = cartItems.length > 1 ? (
+    <Button title="Check Out" onPress={checkOut} className="bg-blue-800 text-cyan-50"/>
+  ) : null;
   return (
 
     <ScrollView>
@@ -11,7 +14,7 @@ export default function CartItem() {
             Cart
           </Text>
           <CartList />
-          <Button title="Check Out" onPress={checkOut} className="bg-blue-800 text-cyan-50" />
+          {renderCheckoutButton}
     </ScrollView>
   );
 }
