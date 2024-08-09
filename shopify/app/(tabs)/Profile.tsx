@@ -12,7 +12,7 @@ import {
 import {  firestore } from '@/firebase/config';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigation } from '@react-navigation/core';
-// import Input from '@/components/ui/Inputs';
+import Input from '@/components/ui/Inputs';
 
 const formSchema = z
   .object({
@@ -166,16 +166,9 @@ const EditProfile = () => {
   );
 };
 
-  const Input = ({ title, error, ...props }) => (
-    <View style={styles.inputContainer}>
-      <Text style={styles.label}>{title}</Text>
-      <View style={styles.inputWrapper}>
-        <TextInput style={styles.input} {...props} />
-        {error && <Text style={styles.error}>{error}</Text>}
-      </View>
-    </View>
-  );
 
+  
+export default EditProfile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -241,5 +234,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default EditProfile;
