@@ -29,8 +29,7 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useAsyncStorage<CartItem[]>(
-    "shopping-cart",
+  const [cartItems, setCartItems] = useState<CartItem[]>(
     []
   );
   const router = useRouter();
