@@ -11,6 +11,15 @@ export default function CartPage() {
   const currentUser = auth.currentUser;
   console.log(currentUser)
   return (
-    <CartItem/>
+    <ScrollView>
+      {currentUser ? (
+      <CartItem/>
+      ):
+      (
+        <Redirect/>
+      )}
+      
+    </ScrollView>
+    
   );
 }
