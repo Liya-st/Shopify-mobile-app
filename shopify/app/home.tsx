@@ -4,8 +4,7 @@ import ProductList from '@/components/ui/ProductList/ProductList';
 import { auth } from '@/firebase/config';
 
 export default function Home() {
-  const currentUser = auth.currentUser
-  console.log(currentUser)
+
   return (
     <ScrollView>
       <Intro />

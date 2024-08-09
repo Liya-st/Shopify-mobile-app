@@ -69,7 +69,7 @@ const ProductDetail: React.FC = () => {
             <Text>{quantity}</Text>
             <Button title="+" onPress={handleIncrease} />
           </View>
-          <View className ="flex-row gap-5 pt-2 justify-center">
+          <View className ="flex-row gap-4 my-5 justify-center">
           <Button
             title="Add to Cart"
             onPress={handleAddToCart}

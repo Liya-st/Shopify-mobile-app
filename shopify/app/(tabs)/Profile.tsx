@@ -14,7 +14,6 @@ import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigation } from '@react-navigation/core';
 import Redirect from '@/components/ui/Redirect';
 import Input from '@/components/ui/Inputs';
-// import Input from '@/components/ui/Inputs';
 
 const formSchema = z
   .object({
@@ -85,8 +84,6 @@ const EditProfile = () => {
   };
 
   return (
-    <>
-    { currentUser ? (
       <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>Edit your profile details</Text>
@@ -167,10 +164,7 @@ const EditProfile = () => {
       </View>
       <Button title = "Log Out" onPress={handleLogOut}/>
     </View>
-    ):(
-      <Redirect />
-    )}
-    </>
+    
     
   );
 };

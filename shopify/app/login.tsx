@@ -2,7 +2,7 @@ import React from 'react';
 import { z } from 'zod';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import AuthForm from '@/components/layout/AuthForm';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from 'expo-router';
 const validationSchema = z.object({
   email: z.string().email('Invalid email address'),
   password: z.string().min(8, 'Password must be at least 8 characters'),
@@ -14,8 +14,7 @@ export default function LoginComponent() {
   const onSubmit = async (values: any) => {
     try {
       await logIn(values.email, values.password);
-      console.log('User logged in successfully');
-      navigation.navigate("index")
+      navigation.navigate('index')
     } catch (error) {
       console.error('Error logging in:', error);
     }
