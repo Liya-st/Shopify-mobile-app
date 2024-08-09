@@ -85,8 +85,6 @@ const EditProfile = () => {
   };
 
   return (
-    <>
-    { currentUser ? (
       <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>Edit your profile details</Text>
@@ -167,10 +165,7 @@ const EditProfile = () => {
       </View>
       <Button title = "Log Out" onPress={handleLogOut}/>
     </View>
-    ):(
-      <Redirect />
-    )}
-    </>
+    
     
   );
 };
