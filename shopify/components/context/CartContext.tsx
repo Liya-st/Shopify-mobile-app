@@ -1,5 +1,8 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useAsyncStorage } from "../../hooks/useLocalStorage";
+import { Link, useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/core";
+import { Alert } from "react-native";
 
 type CartProviderProps = {
   children: ReactNode;
@@ -10,7 +13,8 @@ type CartContext = {
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
-  cartItems: CartItem[]
+  cartItems: CartItem[];
+  checkOut: () => void;
 };
 
 type CartItem = {
@@ -25,23 +29,26 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cartItems, setCartItems] = useAsyncStorage<CartItem[]>("shopping-cart",[]);
+  const [cartItems, setCartItems] = useAsyncStorage<CartItem[]>(
+    "shopping-cart",
+    []
+  );
+  const router = useRouter();
+  const navigation = useNavigation();
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
 
-  function increaseCartQuantity(id: number ) {
+  function increaseCartQuantity(id: number) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
-      }
-      else {
+      } else {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity + 1 };
-          }
-          else return item;
+          } else return item;
         });
       }
     });
@@ -51,13 +58,11 @@ export function CartProvider({ children }: CartProviderProps) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
-      }
-      else {
+      } else {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity - 1 };
-          }
-          else return item;
+          } else return item;
         });
       }
     });
@@ -68,6 +73,16 @@ export function CartProvider({ children }: CartProviderProps) {
       return currItems.filter((item) => item.id !== id);
     });
   }
+  function checkOut() {
+    setCartItems([]);
+    Alert.alert("Checkout Successful", "Your order has been placed successfully!", [
+      {
+        text: "OK",
+        onPress: () => console.log("Order confirmed"),
+      },
+    ]);
+    
+  }
   return (
     <CartContext.Provider
       value={{
@@ -76,6 +91,7 @@ export function CartProvider({ children }: CartProviderProps) {
         decreaseCartQuantity,
         removeFromCart,
         cartItems,
+        checkOut,
       }}
     >
       {children}

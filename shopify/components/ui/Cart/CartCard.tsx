@@ -43,7 +43,7 @@ export default function CartCard({ title, price, id }: CardWithTextProps) {
             {item.price && (
               <Text className="p-2 text-sm text-gray-400 ">${item.price}</Text>
             )} 
-            <View className = "flex-row ">
+            <View className = "flex-row justify-between  ">
             <Text>Qty: </Text>
             <Button title="-" onPress={() => decreaseCartQuantity(id)} />
             {quantity > 0 && (
