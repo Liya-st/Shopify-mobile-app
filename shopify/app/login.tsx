@@ -14,8 +14,7 @@ export default function LoginComponent() {
   const onSubmit = async (values: any) => {
     try {
       await logIn(values.email, values.password);
-      console.log('User logged in successfully');
-      navigation.navigate('home')
+      navigation.navigate('index')
     } catch (error) {
       console.error('Error logging in:', error);
     }
