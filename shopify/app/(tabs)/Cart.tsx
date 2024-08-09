@@ -1,4 +1,5 @@
 import { useCart } from "@/components/context/CartContext";
+import CartItem from "@/components/ui/Cart/CartItems";
 import CartList from "@/components/ui/Cart/CartList";
 import Redirect from "@/components/ui/Redirect";
 import { auth } from "@/firebase/config";
@@ -12,18 +13,13 @@ export default function CartPage() {
   return (
     <ScrollView>
       {currentUser ? (
-        <>
-        <Text className="text-center p-14 text-blue-800 text-light text-5xl">
-        Cart
-      </Text>
-      <CartList />
-      <Button title="Check Out" className="bg-blue-800 text-cyan-50" />
-      </>
-      ):(
-
-        <Redirect />
-      )
-      }
+      <CartItem/>
+      ):
+      (
+        <Redirect/>
+      )}
+      
     </ScrollView>
+    
   );
 }
