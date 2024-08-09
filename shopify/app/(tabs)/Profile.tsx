@@ -34,8 +34,7 @@ type FormField = z.infer<typeof formSchema>;
 const EditProfile = () => {
   const navigation = useNavigation()
   const [isEdited, setisEdited] = useState(false);
-  const { currentUser } = useFirebaseAuth();
-  const {logOut} = useFirebaseAuth();
+  const { currentUser,logOut,userInfo } = useFirebaseAuth();
   const {
     control,
     handleSubmit,
@@ -84,8 +83,10 @@ const EditProfile = () => {
   };
 
   return (
+    
       <View style={styles.container}>
       <View style={styles.card}>
+        <Text className =" text-2xl text-blue-800 ">Hello {userInfo?.firstName},</Text>
         <Text style={styles.title}>Edit your profile details</Text>
         <View style={styles.form}>
           <Controller
@@ -161,8 +162,8 @@ const EditProfile = () => {
         {isEdited && (
           <Text style={styles.success}>User Details edited successfully</Text>
         )}
+      <Button className =" py-4 mt-5 " title = "Log Out" onPress={handleLogOut}/>
       </View>
-      <Button title = "Log Out" onPress={handleLogOut}/>
     </View>
     
     
@@ -183,6 +184,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 20,
     borderRadius: 8,
+    height:'80%',
+    width:'80%',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

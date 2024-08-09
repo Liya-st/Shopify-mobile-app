@@ -33,6 +33,7 @@ const ProductDetail: React.FC = () => {
   };
 
   const handleAddToCart = () => {
+    increaseCartQuantity(product.id);
     setQuantity(0);
   };
 
