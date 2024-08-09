@@ -32,16 +32,16 @@ export default function TabLayout() {
       options={{
         title: currentUser ? "Cart" : "Register",
         tabBarIcon: ({ color, focused }) => (
-          currentUser &&  <TabBarIcon name={focused ? 'cart' : 'cart-outline'} color={color} />
+        currentUser ? ( <TabBarIcon name={focused ? 'cart' : 'cart-outline'} color={color} />) : (<TabBarIcon name = {focused ? "add-circle" : "add-circle-outline"} color={color} />)
         ),
       }}
     />
     <Tabs.Screen
       name="Profile"
       options={{
-        title: 'Profile',
+        title: currentUser ? "Profile" : "Signin",
         tabBarIcon: ({ color, focused }) => (
-          <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
+        currentUser ?  <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} /> : <TabBarIcon name = {focused ? "add-circle-outline" : "add-circle"} color={color} />
         ),
       }}
     />

@@ -12,6 +12,7 @@ import {
 import {  firestore } from '@/firebase/config';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigation } from '@react-navigation/core';
+import Redirect from '@/components/ui/Redirect';
 // import Input from '@/components/ui/Inputs';
 
 const formSchema = z
@@ -83,7 +84,9 @@ const EditProfile = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <>
+    { currentUser ? (
+      <View style={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>Edit your profile details</Text>
         <View style={styles.form}>
@@ -163,6 +166,11 @@ const EditProfile = () => {
       </View>
       <Button title = "Log Out" onPress={handleLogOut}/>
     </View>
+    ):(
+      <Redirect />
+    )}
+    </>
+    
   );
 };
 
