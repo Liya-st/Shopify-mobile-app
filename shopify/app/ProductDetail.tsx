@@ -69,11 +69,13 @@ const ProductDetail: React.FC = () => {
             <Text>{quantity}</Text>
             <Button title="+" onPress={handleIncrease} />
           </View>
+          <View className ="flex-row gap-4 pl-10 pt-2">
           <Button
             title="Add to Cart"
             onPress={handleAddToCart}
           />
-          <Button title="Buy Now"  />
+          <Button title="Buy Now" onPress={()=>{Navigation.navigate('Cart')}}  />
+          </View>
         </View>
       </ScrollView>
     </View>
