@@ -13,6 +13,7 @@ import {  firestore } from '@/firebase/config';
 import useFirebaseAuth from '@/hooks/useFirebaseAuth';
 import { useNavigation } from '@react-navigation/core';
 import Redirect from '@/components/ui/Redirect';
+import Input from '@/components/ui/Inputs';
 // import Input from '@/components/ui/Inputs';
 
 const formSchema = z
